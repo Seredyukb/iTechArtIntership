@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task7</title>
+  </head>
+  <body>
+    <script>
+      //1st What is the code below going to output?
+
+      alert(null || 2 || undefined); //2
+
+      //2nd What will the code below output?
+
+      alert(alert(1) || 2 || alert(3)); //1, 2
+
+      //3rd What is this code going to show?
+
+      alert(1 && null && 2); // null
+
+      //4th What will this code show?
+
+      alert(alert(1) && alert(2)); //1, undefined
+
+      //5th What will the result be?
+
+      alert(null || (2 && 3) || 4); //3
+
+      //6th Write an if condition to check that age is between 14 and 90 inclusively.
+
+      // “Inclusively” means that age can reach the edges 14 or 90.
+      let age = 18;
+      if (age >= 14 && age <= 90) {
+        alert("good");
+      }
+
+      //7th Write an if condition to check that age is NOT between 14 and 90 inclusively.
+
+      // Create two variants: the first one using NOT !, the second one – without it.
+      let age = 18;
+      if (!(age >= 14 && age <= 90)) {
+        alert("good");
+      }
+      let age = 18;
+      if (age <= 14 && age >= 90) {
+        alert("good");
+      }
+
+      //8th Which of these alerts are going to execute?
+
+      // What will the results of the expressions be inside if(...)?
+
+      if (-1 || 0) alert("first"); //first
+      if (-1 && 0) alert("second"); //doesn't run
+      if (null || (-1 && 1)) alert("third"); //third
+
+      //9th Write the code which asks for a login with prompt.
+      //https://javascript.info/logical-operators
+      let result = prompt("Who is there?");
+      if (result == null || result == "") {
+        alert("Cancelled!");
+      } else if (result == "Admin" || result == "admin") {
+        let passwordResult = prompt("Type your password");
+        if (passwordResult == null || passwordResult == "") {
+          alert("Cancelled!");
+        } else if (passwordResult == "TheMaster") {
+          alert("Welcome!");
+        } else alert("wrong password");
+      } else {
+        alert("I do not know you");
+      }
+    </script>
+  </body>
+</html>
