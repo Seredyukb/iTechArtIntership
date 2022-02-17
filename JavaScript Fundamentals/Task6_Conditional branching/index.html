@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task6</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        //1st Will alert be shown?
-        if ("0") {
-  alert( 'Hello' );
-}//true
+      //1st Will alert be shown?
+      if ("0") {
+        alert("Hello");
+      } //true
 
-//2nd Using the if..else construct, write the code which asks: ‘What is the “official” name of JavaScript?’
-// If the visitor enters “ECMAScript”, then output “Right!”, otherwise – output: “You don’t know? ECMAScript!”
-let realNameJs = prompt('What is the "official" name of JavaScript?', 'write ECMAScript if you think so and tap cancel if you want other variant');
-if (realNameJs=='ECMAScript') {
-    alert('Right!')
-}else {
-    alert('You don’t know? ECMAScript!')
+      //2nd Using the if..else construct, write the code which asks: ‘What is the “official” name of JavaScript?’
+      // If the visitor enters “ECMAScript”, then output “Right!”, otherwise – output: “You don’t know? ECMAScript!”
+      let realNameJs = prompt(
+        'What is the "official" name of JavaScript?',
+        "write ECMAScript if you think so and tap cancel if you want other variant"
+      );
+      if (realNameJs == "ECMAScript") {
+        alert("Right!");
+      } else {
+        alert("You don’t know? ECMAScript!");
+      }
 
-}
+      //3rd Using if..else, write the code which gets a number via prompt and then shows in alert:
+      // 1, if the value is greater than zero,
+      // -1, if less than zero,
+      // 0, if equals zero.
+      // In this task we assume that the input is always a number.
+      let resultCheck = prompt("Type some num");
+      if (resultCheck > 0) {
+        alert(1);
+      } else if (resultCheck < 0) {
+        alert(-1);
+      } else {
+        alert(0);
+      }
 
-//3rd Using if..else, write the code which gets a number via prompt and then shows in alert:
-// 1, if the value is greater than zero,
-// -1, if less than zero,
-// 0, if equals zero.
-// In this task we assume that the input is always a number.
-let resultCheck = prompt('Type some num');
-if (resultCheck>0) {
-    alert(1)
-} else
- if(resultCheck<0){
-    alert(-1)
- } else
- {
-    alert(0)
- }
+      //4th Rewrite this if using the conditional operator '?':
 
- //4th Rewrite this if using the conditional operator '?':
-
- /*let result;
+      /*let result;
 
 if (a + b < 4) {
   result = 'Below';
@@ -49,14 +49,14 @@ if (a + b < 4) {
   result = 'Over';
 }
 */
-let a = 1,
-    b = 2;
-let result= (a + b < 4)?'Below':'Over';
-alert(result);
+      let a = 1,
+        b = 2;
+      let result = a + b < 4 ? "Below" : "Over";
+      alert(result);
 
-//5th Rewrite if..else using multiple ternary operators '?'.
-// For readability, it’s recommended to split the code into multiple lines.
-/*
+      //5th Rewrite if..else using multiple ternary operators '?'.
+      // For readability, it’s recommended to split the code into multiple lines.
+      /*
  let message;
 
 if (login == 'Employee') {
@@ -70,26 +70,29 @@ if (login == 'Employee') {
 }
 */
 
-let message;
-let login = prompt('write one of 3 words Employee or Director or empty string')
-message = (login == 'Employee')?'Hello':
-(login == 'Director')?'Greetings':
-(login == '')?'No login':'';
-alert(message)
+      let message;
+      let login = prompt(
+        "write one of 3 words Employee or Director or empty string"
+      );
+      message =
+        login == "Employee"
+          ? "Hello"
+          : login == "Director"
+          ? "Greetings"
+          : login == ""
+          ? "No login"
+          : "";
+      alert(message);
 
-
-if (login == 'Employee') {
-  message = 'Hello';
-} else if (login == 'Director') {
-  message = 'Greetings';
-} else if (login == '') {
-  message = 'No login';
-} else {
-  message = '';
-}
-
-
-
+      if (login == "Employee") {
+        message = "Hello";
+      } else if (login == "Director") {
+        message = "Greetings";
+      } else if (login == "") {
+        message = "No login";
+      } else {
+        message = "";
+      }
     </script>
-</body>
+  </body>
 </html>
