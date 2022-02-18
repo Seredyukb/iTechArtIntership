@@ -82,7 +82,12 @@
       }
       let a = prompt("Type num a");
       let b = prompt("Type num b");
-      showPow(a, b);
+
+      if (b < 1) {
+        alert(`Power ${b} is not supported, use a positive integer`);
+      } else {
+        showPow(a, b);
+      }
     </script>
   </body>
 </html>
