@@ -1,14 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task2</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        
+      //1st Using "this" in object literal
+      //Here the function makeUser returns an object.
+
+      //What is the result of accessing its ref? Why?
+
+      function makeUser() {
+        return {
+          name: "John",
+          ref: this,
+        };
+      }
+
+      let user = makeUser();
+
+      alert(user.ref.name); // What's the result? error
+
+      //2nd Create a calculator
+      //Create an object calculator with three methods:
+
+      //read() prompts for two values and saves them as object properties.
+      //sum() returns the sum of saved values.
+      //mul() multiplies saved values and returns the result.
+      let calculator = {
+        read() {
+          this.num1 = +prompt("vvedite 1 chislo");
+          this.num2 = +prompt("vvedite 2 chislo");
+        },
+        sum() {
+          return this.num1 + this.num2;
+        },
+        mul() {
+          return this.num1 * this.num2;
+        },
+      };
+
+      calculator.read();
+      alert(calculator.sum());
+      alert(calculator.mul());
+
+      //3rd Chaining
+      //There’s a ladder object that allows to go up and down:
+
+      let ladder = {
+        step: 0,
+        up() {
+          this.step++;
+          return this;
+        },
+        down() {
+          this.step--;
+          return this;
+        },
+        showStep: function () {
+          // shows the current step
+          alert(this.step);
+          return this;
+        },
+      };
+      // Now, if we need to make several calls in sequence, can do it like this:
+
+      ladder.up();
+      ladder.up();
+      ladder.down();
+      ladder.showStep(); // 1
+      ladder.down();
+      ladder.showStep(); // 0
+      // Modify the code of up, down and showStep to make the calls chainable, like this:
+
+      ladder.up().up().down().showStep().down().showStep(); // shows 1 then 0
+      // Such approach is widely used across JavaScript libraries.
     </script>
-</body>
+  </body>
 </html>
