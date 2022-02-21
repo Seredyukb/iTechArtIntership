@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2</title>
+  </head>
+  <body>
+    <script>
+      //1st Sum numbers from the visitor
+      // Create a script that prompts the visitor to enter two numbers and then shows their sum.
+
+      // Run the demo
+
+      // P.S. There is a gotcha with types.
+      let sum = () => {
+        let a = +prompt();
+        let b = +prompt();
+        return a + b;
+      };
+
+      //2nd Why 6.35.toFixed(1) == 6.3?
+      // According to the documentation Math.round and toFixed both round to the nearest number: 0..4 lead down while 5..9 lead up.
+
+      // For instance:
+
+      alert(((1.35 * 10) / 10).toFixed(1)); // 1.4
+      // In the similar example below, why is 6.35 rounded to 6.3, not 6.4?
+
+      alert(((6.35 * 10) / 10).toFixed(1)); // 6.3
+      // How to round 6.35 the right way?
+
+      //3rd Repeat until the input is a number
+      // Create a function readNumber which prompts for a number until the visitor enters a valid numeric value.
+
+      // The resulting value must be returned as a number.
+
+      // The visitor can also stop the process by entering an empty line or pressing “CANCEL”. In that case, the function should return null.
+      function readNumber() {
+        let a;
+        do {
+          a = +prompt("type numeric value", 0);
+        } while (!isFinite(a));
+        if (a == "" || a == null) return null;
+        return a;
+      }
+      readNumber();
+
+      //4th An occasional infinite loop
+      // This loop is infinite. It never ends. Why?
+
+      /*let i = 0;
+while (i != 10) {
+  i += 0.2;
+// }*/
+      // it never ends because of fraction 0.2
+
+      //5th A random number from min to max
+      // The built-in function Math.random() creates a random value from 0 to 1 (not including 1).
+
+      // Write the function random(min, max) to generate a random floating-point number from min to max (not including max).
+
+      // Examples of its work:
+      function random(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+      random();
+      alert(random(1, 5)); // 1.2345623452
+      alert(random(1, 5)); // 3.7894332423
+      alert(random(1, 5)); // 4.3435234525
+
+      //6th A random integer from min to max
+      // Create a function randomInteger(min, max) that generates a random integer number from min to max including both min and max as possible values.
+
+      // Any number from the interval min..max must appear with the same probability.
+
+      // Examples of its work:
+      function randomInteger(min, max) {
+        return Math.floor(min + Math.random() * (max - min + 1));
+      }
+      alert(randomInteger(1, 5)); // 1
+      alert(randomInteger(1, 5)); // 3
+      alert(randomInteger(1, 5)); // 5
+      // You can use the solution of the previous task as the base.
+    </script>
+  </body>
+</html>
