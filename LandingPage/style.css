@@ -354,4 +354,9 @@ media
   .blog-block {
     width: 100%;
   }
+  #blogs {
+    display: flex;
+    flex-flow: column;
+    align-content: space-between;
+}
 }
