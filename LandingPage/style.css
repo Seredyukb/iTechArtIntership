@@ -357,4 +357,16 @@ media
   .blog-block {
     width: 100%;
   }
+  #section-gifs{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  #section-gifs img{
+    width: -webkit-fill-available;
+  }
+  #section-gifs>p {
+    width: auto;
+}
 }
