@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implement function cacher Task 1</title>
+</head>
+<body>
+    <script>
+        //1st Implement function cacher
+        function slow(x){
+            alert('slow calculations...')
+            return x;
+        }
+
+        function cashier(fn){
+            let cash = new Map();
+            return function(x){
+            if (cash.has(x)){ return cash.get(x)}
+           let result = fn(x);
+           cash.set(x, result);
+           return result;
+        } 
+    }
+
+
+    /*function slow(x) {
+  // здесь могут быть ресурсоёмкие вычисления
+  alert(`Called with ${x}`);
+  return x;
+}
+
+function cachingDecorator(func) {
+  let cache = new Map();
+
+  return function(x) {
+    if (cache.has(x)) {    // если кеш содержит такой x,
+      return cache.get(x); // читаем из него результат
+    }
+
+    let result = func(x); // иначе, вызываем функцию
+
+    cache.set(x, result); // и кешируем (запоминаем) результат
+    return result;
+  };
+}
+
+slow = cachingDecorator(slow);
+
+alert( slow(1) ); // slow(1) кешируем
+alert( "Again: " + slow(1) ); // возвращаем из кеша
+
+alert( slow(2) ); // slow(2) кешируем
+alert( "Again: " + slow(2) ); // возвращаем из кеша*/
+
+// Implement a Cacher class that helps you cache the return value of a function. The next function call with the same arguments should return the value from the cache without additional calculations.
+
+// E.g.
+
+cachedFactorial = cacher.withCache(factorial);
+const a = cachedFactorial(someBigNumber); // => very long calculations...
+const b = cachedFactorial(someBigNumber); // => the result is returned from the cache - very quickly
+
+let factorial = function(){
+    console.log('Data is cached')
+}
+
+class Cacher{
+    withCache(func){
+        let cache = new Map();
+        function hash() {
+        return [].join.call(arguments)
+}
+        return function(){
+            let key = hash(arguments);
+            if(cache.has(key)){ return cache.get(key)}
+            let result = func.apply(this, arguments)
+            cache.set(key, result);
+            return result;  
+        }
+    }
+}
+
+
+let cacher = new Cacher();
+cachedFactorial = cacher.withCache(factorial)
+
+    </script>
+</body>
+</html>

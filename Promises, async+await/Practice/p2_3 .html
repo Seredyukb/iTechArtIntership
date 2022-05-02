@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 1</title>
+  </head>
+  <body>
+    <script>
+      let doc = document;
+      let container = doc.createElement("div");
+      container.className = "container";
+      container.style.display = "flex";
+      container.style.justifyContent = "center";
+      container.style.alignItems = "center";
+      container.style.height = "763px";
+      doc.body.appendChild(container);
+
+      async function loadCurrentImage() {
+        let loader = doc.createElement("p");
+        loader.innerHTML = "loading...";
+        container.appendChild(loader);
+        let response = await fetch(
+          "https://api.thecatapi.com/v1/images/search"
+        );
+        let data = await response.json();
+        let [curData] = data;
+        let img = doc.createElement("img");
+        img.style.width = "300px";
+        img.src = curData.url;
+        container.appendChild(img);
+        let onImageLoadPromise = new Promise(function(resolve,reject){
+          img.onload = () =>{
+            loader.remove();
+            resolve();
+          } 
+        })
+        await onImageLoadPromise;
+      }
+      async function loadAllImages() {
+        for (let i = 0; i < 5; i++) {
+          loadCurrentImage();
+        }
+      }
+      loadAllImages();
+
+
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+</head>
+<body>
+    <script>
+        //1st Strange instanceof
+// In the code below, why does instanceof return true? We can easily see that a is not created by B().
+
+function A() {}
+function B() {}
+
+A.prototype = B.prototype = {};
+
+let a = new A();
+
+alert( a instanceof B ); // true because operator instance of consider only obj.prototype
+
+
+const Bodya = {
+    name: 'Bogdan',
+    age: 30,
+    sayHello: function(){
+        console.log('Hello!')
+    },
+    printMessage: function(){
+        console.group(`Message from user ${this.name}`),
+            console.log(`${this.sayHello()}from ${this.name} my age is ${this.age}`),
+            console.groupEnd()
+    }
+}
+
+const nadia = {
+    name: 'Nadia',
+    age: 32
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

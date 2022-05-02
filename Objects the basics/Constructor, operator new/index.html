@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3</title>
+  </head>
+  <body>
+    <script>
+                  //1st Two functions – one object
+                  // Is it possible to create functions A and B so that new A() == new B()?
+
+                  let obj = {};
+
+                  function A() {
+                    return obj;
+                  }
+                  function B() {
+                    return obj;
+                  }
+
+                  let a = new A();
+                  let b = new B();
+
+                  alert(a == b); // true
+                  // If it is, then provide an example of their code.
+
+                  //2nd Create new Calculator
+            // Create a constructor function Calculator that creates objects with 3 methods:
+
+            // read() asks for two values using prompt and remembers them in object properties.
+            // sum() returns the sum of these properties.
+            // mul() returns the multiplication product of these properties.
+            // For instance:
+            function Calculator() {
+                this.read = function(){
+                    this.num1 = +prompt('print 1st num')
+                    this.num2 = +prompt('print 2nd num')
+                }
+                this.sum = function(){
+                    return this.num1+this.num2;
+                }
+                this.mul = function(){
+                    return this.num1*this.num2;
+                }
+            }
+            let calculator = new Calculator();
+            calculator.read();
+
+            alert( "Sum=" + calculator.sum() );
+            alert( "Mul=" + calculator.mul() );
+
+
+            //3rd Create new Accumulator
+      // Create a constructor function Accumulator(startingValue).
+
+      // Object that it creates should:
+
+      // Store the “current value” in the property value. The starting value is set to the argument of the constructor startingValue.
+      // The read() method should use prompt to read a new number and add it to value.
+      // In other words, the value property is the sum of all user-entered values with the initial value startingValue.
+
+      // Here’s the demo of the code:
+      function Accumulator(num){
+      this.value = num;
+      this.read = function(){
+          return this.value +=+prompt('print your num',0);
+      }
+      }
+      let accumulator = new Accumulator(1); // initial value 1
+
+      accumulator.read(); // adds the user-entered value
+      accumulator.read(); // adds the user-entered value
+
+      alert(accumulator.value); // shows the sum of these values
+    </script>
+  </body>
+</html>

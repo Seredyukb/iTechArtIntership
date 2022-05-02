@@ -8,7 +8,98 @@
 </head>
 <body>
     <script>
-        
+        //1st Changing "prototype"
+// In the code below we create new Rabbit, and then try to modify its prototype.
+
+// In the start, we have this code:
+/*
+function Rabbit() {}
+Rabbit.prototype = {
+  eats: true
+};
+
+let rabbit = new Rabbit();
+
+alert( rabbit.eats ); // true
+// We added one more string (emphasized). What will alert show now?
+
+function Rabbit() {}
+Rabbit.prototype = {
+  eats: true
+};
+
+let rabbit = new Rabbit();
+
+Rabbit.prototype = {};
+
+alert( rabbit.eats ); // ? true
+// …And if the code is like this (replaced one line)?
+
+function Rabbit() {}
+Rabbit.prototype = {
+  eats: true
+};
+
+let rabbit = new Rabbit();
+
+Rabbit.prototype.eats = false;
+
+alert( rabbit.eats ); // ? false
+// And like this (replaced one line)?
+
+function Rabbit() {}
+Rabbit.prototype = {
+  eats: true
+};
+
+let rabbit = new Rabbit();
+
+delete rabbit.eats;
+
+alert( rabbit.eats ); // ? true
+// The last variant:
+
+function Rabbit() {}
+Rabbit.prototype = {
+  eats: true
+};
+
+let rabbit = new Rabbit();
+
+delete Rabbit.prototype.eats;
+
+alert( rabbit.eats ); // ? undefined
+
+
+//3rd Create an object with the same constructor
+// Imagine, we have an arbitrary object obj, created by a constructor function – we don’t know which one, but we’d like to create a new object using it.
+
+// Can we do it like that?
+
+let obj2 = new obj.constructor();
+// Give an example of a constructor function for obj which lets such code work right. And an example that makes it work wrong.
+
+function User(name) {
+  this.name = name;
+}
+
+let user = new User('John');
+let user2 = new user.constructor('Pete');
+
+alert( user2.name );
+
+//2
+
+function User(name) {
+  this.name = name;
+}
+User.prototype = {}; // (*)
+
+let user = new User('John');
+let user2 = new user.constructor('Pete');
+
+alert( user2.name );
+*/
     </script>
 </body>
 </html>

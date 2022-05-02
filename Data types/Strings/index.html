@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+</head>
+<body>
+    <script>
+        //1st Uppercase the first character
+// Write a function ucFirst(str) that returns the string str with the uppercased first character, for instance:
+function ucFirst(str){
+    return str[0].toUpperCase()+str.slice(1)
+}
+ucFirst("john") == "John";
+
+//2nd Check for spam
+// Write a function checkSpam(str) that returns true if str contains ‘viagra’ or ‘XXX’, otherwise false.
+
+// The function must be case-insensitive:
+function checkSpam(str){
+    let newStr = str.toLowerCase();
+    newStr2 = str.toUpperCase(); 
+    return newStr.includes('viagra') || newStr.includes('XXX') || newStr2.includes('viagra') || newStr2.includes('XXX') 
+}
+checkSpam('buy ViAgRA now') //== true
+checkSpam('free xxxxx')// == true
+checkSpam("innocent rabbit") //== false 
+
+//3rd Truncate the text
+// Create a function truncate(str, maxlength) that checks the length of the str and, if it exceeds maxlength – replaces the end of str with the ellipsis character "…", to make its length equal to maxlength.
+
+// The result of the function should be the truncated (if needed) string.
+
+// For instance:
+function truncate(str,maxLength){
+    
+    return (str.length>maxLength)?str.slice(0,maxLength-1)+'...':str
+}
+truncate("What I'd like to tell on this topic is:", 20) = "What I'd like to te…"
+
+truncate("Hi everyone!", 20) = "Hi everyone!"
+
+//4th Extract the money
+// We have a cost in the form "$120". That is: the dollar sign goes first, and then the number.
+
+// Create a function extractCurrencyValue(str) that would extract the numeric value from such string and return it.
+
+// The example:
+function extractCurrencyValue(str){
+ return +(parseInt(str) || str.slice(1))
+}
+alert( extractCurrencyValue('$120') === 120 ); // true
+
+    </script>
+</body>
+</html>

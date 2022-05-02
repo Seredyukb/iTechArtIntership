@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2</title>
+  </head>
+  <body>
+    <script>
+      //1st Are counters independent?
+      // importance: 5
+      // Here we make two counters: counter and counter2 using the same makeCounter function.
+
+      // Are they independent? What is the second counter going to show? 0,1 or 2,3 or something else?
+/*
+      function makeCounter() {
+        let count = 0;
+
+        return function () {
+          return count++;
+        };
+      }
+
+      let counter = makeCounter();
+      let counter2 = makeCounter();
+
+      alert(counter()); // 0
+      alert(counter()); // 1
+
+      alert(counter2()); // 0
+      alert(counter2()); // 1
+
+      //2nd Counter object
+      // importance: 5
+      // Here a counter object is made with the help of the constructor function.
+
+      // Will it work? What will it show?
+
+      function Counter() {
+        let count = 0;
+
+        this.up = function () {
+          return ++count;
+        };
+        this.down = function () {
+          return --count;
+        };
+      }
+
+      let counter = new Counter();
+
+      alert(counter.up()); // 1
+      alert(counter.up()); // 2
+      alert(counter.down()); // 1
+
+      //3rd Function in if
+      // Look at the code. What will be the result of the call at the last line?
+
+      let phrase = "Hello";
+
+      if (true) {
+        let user = "John";
+
+        function sayHi() {
+          alert(`${phrase}, ${user}`);
+        }
+      }
+
+      sayHi(); //error
+
+      //4th Sum with closures
+      // importance: 4
+      // Write function sum that works like this: sum(a)(b) = a+b.
+
+      // Yes, exactly this way, using double parentheses (not a mistype).
+
+      // For instance:
+
+      function sum(a = 0) {
+        return function (b = 0) {
+          return +a + +b;
+        };
+      }
+
+      sum(1)(2); //= 3
+      sum(5)(-1); //= 4
+
+      //5th Is variable visible?
+      // importance: 4
+      // What will be the result of this code?
+
+      let x = 1;
+
+      function func() {
+        console.log(x); // ?
+
+        let x = 2;
+      }
+
+      func(); //error because var with let don't exist bfore initialization
+      // P.S. There’s a pitfall in this task. The solution is not obvious.
+
+      //6th Filter through function
+
+      // importance: 5
+      // We have a built-in method arr.filter(f) for arrays. It filters all elements through the function f. If it returns true, then that element is returned in the resulting array.
+
+      // Make a set of “ready to use” filters:
+
+      // inBetween(a, b) – between a and b or equal to them (inclusively).
+      // inArray([...]) – in the given array.
+      // The usage must be like this:
+
+      // arr.filter(inBetween(3,6)) – selects only values between 3 and 6.
+      // arr.filter(inArray([1,2,3])) – selects only elements matching with one of the members of [1,2,3].
+      // For instance:
+
+      /* .. your code for inBetween and inArray */
+      let arr = [1, 2, 3, 4, 5, 6, 7];
+      function inBetween(a,b){
+          return function(x){
+              return x>=a && x<=b
+          }
+      }
+
+      function inArray(arr1){
+          return function(x){
+             return arr1.includes(x)
+          }
+      }
+
+      alert(arr.filter(inBetween(3, 6))); // 3,4,5,6
+
+      alert(arr.filter(inArray([1, 2, 10]))); // 1,2
+
+
+      //7th Sort by field
+// importance: 5
+// We’ve got an array of objects to sort:
+
+let users = [
+  { name: "John", age: 20, surname: "Johnson" },
+  { name: "Pete", age: 18, surname: "Peterson" },
+  { name: "Ann", age: 19, surname: "Hathaway" }
+];
+// The usual way to do that would be:
+
+// by name (Ann, John, Pete)
+users.sort((a, b) => a.name > b.name ? 1 : -1);
+
+// by age (Pete, Ann, John)
+users.sort((a, b) => a.age > b.age ? 1 : -1);
+// Can we make it even less verbose, like this?
+
+users.sort(byField('name'));
+users.sort(byField('age'));
+// So, instead of writing a function, just put byField(fieldName).
+
+
+function byField(str){
+    return function(a,b){
+        return x.sort((a,b)=>a.str-b.str)
+    }
+}
+// Write the function byField that can be used for that.
+
+//8th 
+/*Army of functions
+importance: 5
+The following code creates an array of shooters.
+
+Every function is meant to output its number. But something is wrong…
+
+function makeArmy() {
+  let shooters = [];
+
+  let i = 0;
+  while (i < 10) {
+    let shooter = function() { // create a shooter function,
+      alert( i ); // that should show its number
+    };
+    shooters.push(shooter); // and add it to the array
+    i++;
+  }
+
+  // ...and return the array of shooters
+  return shooters;
+}
+
+let army = makeArmy();
+
+// all shooters show 10 instead of their numbers 0, 1, 2, 3...
+army[0](); // 10 from the shooter number 0
+army[1](); // 10 from the shooter number 1
+army[2](); // 10 ...and so on.
+Why do all of the shooters show the same value?
+
+Fix the code so that they work as intended.*/ 
+
+
+
+function makeArmy() {
+
+  let shooters = [];
+
+for(let i = 0; i < 10; i++) {
+  let shooter = function() { // shooter function
+    alert( i ); // should show its number
+  };
+  shooters.push(shooter);
+}
+
+return shooters;
+}
+
+let army = makeArmy();
+
+army[0](); // 0
+army[5](); // 5
+    </script>
+  </body>
+</html>
