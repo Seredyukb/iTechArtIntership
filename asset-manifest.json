@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/iTechArtIntership/static/css/main.0cb17c45.css",
+    "main.js": "/iTechArtIntership/static/js/main.6e22b81e.js",
+    "index.html": "/iTechArtIntership/index.html",
+    "main.0cb17c45.css.map": "/iTechArtIntership/static/css/main.0cb17c45.css.map",
+    "main.6e22b81e.js.map": "/iTechArtIntership/static/js/main.6e22b81e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0cb17c45.css",
+    "static/js/main.6e22b81e.js"
+  ]
+}
